@@ -8,7 +8,9 @@
         <item name="colorSecondary">@color/black</item>
         <item name="colorSecondaryVariant">@color/black</item>
         <item name="colorOnSecondary">@color/black</item>
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
     </style>
+    <style name="Theme.MyApplication" parent="Base.Theme.MyApplication"/>
 
     <style name="Button1">
         <item name="android:layout_width">75dp</item>

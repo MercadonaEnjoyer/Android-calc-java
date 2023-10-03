@@ -41,6 +41,11 @@ public class MainActivity extends AppCompatActivity {
 
         TextView screen = findViewById(R.id.screen);
 
+        ac.setOnClickListener(view -> {
+            firstNum = 0;
+            screen.setText("0");
+        });
+
         off.setOnClickListener(view -> screen.setVisibility(view.GONE));
         on.setOnClickListener(view -> {
             screen.setVisibility(view.VISIBLE);
@@ -98,6 +103,25 @@ public class MainActivity extends AppCompatActivity {
         equal.setOnClickListener(view -> {
             double secondNum = Double.parseDouble(screen.getText().toString());
             double result;
+            switch(opperation){
+                case "/":
+                    result = firstNum/secondNum;
+                    break;
+                case "X":
+                    result = firstNum*secondNum;
+                    break;
+                case "+":
+                    result = firstNum+secondNum;
+                    break;
+                case "-":
+                    result = firstNum-secondNum;
+                    break;
+                default:
+                    result = firstNum+secondNum;
+            }
+            screen.setText(String.valueOf(result));
+            firstNum = result;
+
         });
     }
 }

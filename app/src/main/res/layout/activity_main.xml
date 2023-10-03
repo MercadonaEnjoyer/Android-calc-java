@@ -11,15 +11,15 @@
 
     <TextView
             android:id="@+id/screen"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="376dp"
+            android:layout_height="200dp"
             android:text="0"
             android:textStyle="bold"
             android:textSize="60dp"
             android:textColor="#FFFFFF"
             android:paddingHorizontal="15dp"
             android:paddingVertical="35dp"
-            android:layout_above="@+id/nums"/>
+            android:layout_above="@+id/nums" android:layout_marginBottom="-3dp"/>
     <LinearLayout
             android:id="@+id/nums"
             android:layout_width="match_parent"
