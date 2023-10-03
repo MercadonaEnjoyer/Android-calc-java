@@ -12,7 +12,7 @@
     <TextView
             android:id="@+id/screen"
             android:layout_width="376dp"
-            android:layout_height="200dp"
+            android:layout_height="200pt"
             android:text="0"
             android:textStyle="bold"
             android:textSize="60dp"

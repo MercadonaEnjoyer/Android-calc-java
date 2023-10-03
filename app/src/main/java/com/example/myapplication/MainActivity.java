@@ -9,7 +9,10 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    double firstNum;
+    double firstNum = 0;
+    double secondNum = 0;
+    double result;
+    boolean afterOper = true;
     String opperation;
 
     @Override
@@ -44,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
         ac.setOnClickListener(view -> {
             firstNum = 0;
             screen.setText("0");
+            afterOper = true;
         });
 
         off.setOnClickListener(view -> screen.setVisibility(view.GONE));
@@ -66,10 +70,12 @@ public class MainActivity extends AppCompatActivity {
 
         for(Button b: nums){
             b.setOnClickListener(view -> {
-                if(!screen.getText().toString().equals("0")){
+                if(!afterOper){
                     screen.setText(screen.getText().toString() + b.getText().toString());
                 }else {
+                    screen.setText("0");
                     screen.setText(b.getText().toString());
+                    afterOper = false;
                 }
             });
         }
@@ -82,9 +88,36 @@ public class MainActivity extends AppCompatActivity {
 
         for(Button b: oper){
             b.setOnClickListener(view -> {
-                firstNum = Double.parseDouble(screen.getText().toString());
-                opperation = b.getText().toString();
-                screen.setText("0");
+                if(firstNum == 0){
+                    firstNum = Double.parseDouble(screen.getText().toString());
+                    opperation = b.getText().toString();
+                    screen.setText(opperation);
+                    afterOper = true;
+                }else{
+                    double secondNum = Double.parseDouble(screen.getText().toString());
+                    double result;
+                    switch(opperation){
+                        case "/":
+                            result = firstNum/secondNum;
+                            break;
+                        case "X":
+                            result = firstNum*secondNum;
+                            break;
+                        case "+":
+                            result = firstNum+secondNum;
+                            break;
+                        case "-":
+                            result = firstNum-secondNum;
+                            break;
+                        default:
+                            result = firstNum+secondNum;
+                    }
+                    screen.setText(String.valueOf(result));
+                    firstNum = result;
+                    opperation = b.getText().toString();
+                    afterOper = true;
+                }
+
             });
         }
         del.setOnClickListener(view -> {
@@ -101,8 +134,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         equal.setOnClickListener(view -> {
-            double secondNum = Double.parseDouble(screen.getText().toString());
-            double result;
+            secondNum = Double.parseDouble(screen.getText().toString());
             switch(opperation){
                 case "/":
                     result = firstNum/secondNum;
@@ -120,7 +152,7 @@ public class MainActivity extends AppCompatActivity {
                     result = firstNum+secondNum;
             }
             screen.setText(String.valueOf(result));
-            firstNum = result;
+            firstNum = 0;
 
         });
     }
