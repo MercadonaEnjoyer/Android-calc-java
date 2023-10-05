@@ -153,6 +153,7 @@ public class MainActivity extends AppCompatActivity {
             }
             screen.setText(String.valueOf(result));
             firstNum = 0;
+            afterOper = true;
 
         });
     }

@@ -35,7 +35,7 @@
                 <Button
                         android:id="@+id/ON"
                         android:text="ON"
-                    style="@style/Button1"/>
+                        style="@style/Button1"/>
                 <Button
                         android:id="@+id/num7"
                         android:text="7"
